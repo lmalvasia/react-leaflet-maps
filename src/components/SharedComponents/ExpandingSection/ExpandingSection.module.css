@@ -1,0 +1,21 @@
+.expandingSectionContainer {
+  width: 100%;
+  border-bottom: 1px solid #CCC;
+}
+
+.angleDown {
+  margin-right: 1rem;
+  transition: transform .5s;
+}
+
+.angleDownExpanded {
+  transform: rotate(90deg);
+}
+
+.labelContainer {
+  display: flex;
+  padding: 10px;
+  font-size: 2rem;
+  background-color: #EEE;
+  width: 100%;
+}

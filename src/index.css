@@ -15,7 +15,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
   font-size: 10px;
 }
@@ -62,4 +61,5 @@ body,
 
 * {
 	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
 }
