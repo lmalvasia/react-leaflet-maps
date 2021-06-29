@@ -43,5 +43,11 @@ module.exports = {
     'lines-between-class-members': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'no-extra-semi': 'off',
+    semi: 'off',
+    '@typescript-eslint/semi': ['error'],
+    'no-unused-expressions': ['error', { allowShortCircuit: true }],
   },
 };
