@@ -10,9 +10,7 @@ interface IGetPinsFeatureGroupProps {
 const renderPin = (pinsFeatureGroup: L.FeatureGroup, pin: IPin) => {
   const { coordinates } = pin.geometry as Point;
   const latLng = L.latLng(coordinates[1], coordinates[0]);
-  const pinMarker = L.marker(latLng, { draggable: true });
-  pinMarker.dragging?.enable();
-  pinMarker.dragging?.enable();
+  const pinMarker = L.marker(latLng);
   pinsFeatureGroup.addLayer(pinMarker);
 };
 

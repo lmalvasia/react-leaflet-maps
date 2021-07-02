@@ -1,0 +1,42 @@
+.pinFormContainer {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContainer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #EEE;
+}
+
+.markerIcon {
+  margin-left: .8rem;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.inputContainer label {
+  margin-right: .5rem;
+  width: 15rem;
+}
+
+.inputContainer input {
+  width: 100%;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+}

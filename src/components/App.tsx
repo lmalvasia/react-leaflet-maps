@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './App.module.css';
 import MapContainer from './MapContainer/MapContainer';
 import LeftPanel from './LeftPanel/LeftPanel';
+import Modal from './SharedComponents/Modal/Modal';
 import { AppProvider } from './AppContext';
 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
         <MapContainer />
       </div>
     </div>
+    <Modal />
   </AppProvider>
 );
 

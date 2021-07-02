@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import * as L from 'leaflet';
 import 'leaflet-draw';
 import 'leaflet-draw/dist/leaflet.draw-src.css';
@@ -6,10 +6,13 @@ import isEqual from 'lodash.isequal';
 import getPinsFeatureGroup from '../../utils/pinsFeatureGroup';
 import { IPin, IPinFeatureGroup } from '../../types/Pin';
 import styles from './Map.module.css';
+import IModal from '../../types/Modal';
+import ModalEnums from '../../enums/Modal';
 
 interface IMapProps {
   pinList: IPin[],
   addPin: (pin: IPin) => void;
+  setModal: Dispatch<SetStateAction<IModal>>;
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -40,13 +43,17 @@ export default class Map extends React.Component<IMapProps> {
     this.leafletMap.addControl(drawControl);
     // Drawing events
     this.leafletMap.on(L.Draw.Event.CREATED, (e) => {
-      const { addPin } = this.props;
+      const { setModal } = this.props;
       const { layerType, layer } = e as L.DrawEvents.Created;
 
       if (layerType === 'marker') {
         const geoJSON = layer.toGeoJSON();
-        addPin({
-          geometry: geoJSON.geometry,
+        setModal({
+          show: true,
+          type: ModalEnums.PIN_MODAL,
+          data: {
+            geometry: geoJSON.geometry,
+          },
         });
       }
     });

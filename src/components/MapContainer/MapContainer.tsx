@@ -3,12 +3,13 @@ import Map from '../Map/Map';
 import { AppContext } from '../AppContext';
 
 const MapContainer = () => {
-  const { pinList, addPin } = useContext(AppContext);
+  const { pinList, addPin, setModal } = useContext(AppContext);
 
   return (
     <Map
       pinList={pinList}
       addPin={addPin}
+      setModal={setModal}
     />
   );
 };

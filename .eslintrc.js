@@ -49,5 +49,10 @@ module.exports = {
     semi: 'off',
     '@typescript-eslint/semi': ['error'],
     'no-unused-expressions': ['error', { allowShortCircuit: true }],
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
+    'jsx-a11y/label-has-associated-control': ['error', {
+      assert: 'htmlFor',
+    }],
   },
 };
