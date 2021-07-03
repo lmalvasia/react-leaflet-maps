@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -30,11 +29,6 @@ const ExpandingSection: React.FC<IExpandingSectionProps> = ({
       )}
     </div>
   );
-};
-
-ExpandingSection.propTypes = {
-  label: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
 };
 
 export default ExpandingSection;

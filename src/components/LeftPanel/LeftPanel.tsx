@@ -1,12 +1,11 @@
 import React from 'react';
+import PinMarkerList from '../PinMarkerList/PinMarkerList';
 import ExpandingSection from '../SharedComponents/ExpandingSection/ExpandingSection';
 
 const LeftPanel = () => (
   <>
     <ExpandingSection label="Pins">
-      <div>
-        Pins
-      </div>
+      <PinMarkerList />
     </ExpandingSection>
     <ExpandingSection label="Regions">
       <div>

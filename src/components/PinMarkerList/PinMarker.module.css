@@ -1,0 +1,8 @@
+.pinContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-top: .1rem solid #CCC;
+}

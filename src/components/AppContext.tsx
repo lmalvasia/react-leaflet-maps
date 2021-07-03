@@ -4,13 +4,15 @@ import React, {
   SetStateAction,
   Dispatch,
 } from 'react';
-import PropTypes, { element } from 'prop-types';
 import { IPin } from '../types/Pin';
 import IModal from '../types/Modal';
 
 interface IAppContext {
   pinList: IPin[];
   addPin: (pin: IPin) => void;
+  editPin: (newPin: IPin, index: number) => void;
+  setIsEditingPing: Dispatch<SetStateAction<boolean>>;
+  isEditingPin: boolean;
   modal: IModal;
   setModal: Dispatch<SetStateAction<IModal>>;
 }
@@ -22,6 +24,9 @@ interface IAppProvider {
 export const AppContext = createContext<IAppContext>({
   pinList: [],
   addPin: () => {},
+  editPin: () => {},
+  setIsEditingPing: () => {},
+  isEditingPin: false,
   modal: {
     show: false,
     type: '',
@@ -38,15 +43,30 @@ export const AppProvider: React.FC<IAppProvider> = ({
     type: '',
     data: {},
   });
+  const [isEditingPin, setIsEditingPing] = useState<boolean>(false);
   const [pinList, setPinList] = useState<IPin[]>([]);
+
   const addPin = (pin: IPin) => {
     setPinList((prevPinList) => [...prevPinList, pin]);
+  };
+
+  const editPin = (newPin: IPin, index: number) => {
+    const newPinList = pinList.map((pin, pinIndex) => {
+      if (pinIndex === index) {
+        return newPin;
+      }
+      return pin;
+    });
+    setPinList(newPinList);
   };
 
   return (
     <AppContext.Provider value={{
       pinList,
       addPin,
+      setIsEditingPing,
+      isEditingPin,
+      editPin,
       modal,
       setModal,
     }}
@@ -54,8 +74,4 @@ export const AppProvider: React.FC<IAppProvider> = ({
       {children}
     </AppContext.Provider>
   );
-};
-
-AppProvider.propTypes = {
-  children: PropTypes.arrayOf(element).isRequired,
 };
